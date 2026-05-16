@@ -195,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function animateRoute(path) {
         drawCities();
         let step = 0;
+        const nodeRadius = 18; // Slightly larger than the circle to give breathing room
 
         function drawStep() {
             if (step >= path.length - 1) return;
@@ -202,24 +203,37 @@ document.addEventListener('DOMContentLoaded', () => {
             const start = cityCoords[path[step]];
             const end = cityCoords[path[step + 1]];
 
+            // Calculate angle and distance
+            const dx = end.x - start.x;
+            const dy = end.y - start.y;
+            const angle = Math.atan2(dy, dx);
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            // Shorten the line so it starts and ends at the circle boundaries
+            const startX = start.x + Math.cos(angle) * nodeRadius;
+            const startY = start.y + Math.sin(angle) * nodeRadius;
+            const endX = end.x - Math.cos(angle) * nodeRadius;
+            const endY = end.y - Math.sin(angle) * nodeRadius;
+
+            // Draw the path line
             ctx.beginPath();
             ctx.setLineDash([5, 5]);
             ctx.strokeStyle = '#22d3ee';
             ctx.lineWidth = 3;
-            ctx.moveTo(start.x, start.y);
-            ctx.lineTo(end.x, end.y);
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
             ctx.stroke();
             ctx.setLineDash([]);
 
-            // Draw arrow
-            const headlen = 10;
-            const angle = Math.atan2(end.y - start.y, end.x - start.x);
+            // Draw arrow head at the end of the shortened line
+            const headlen = 12;
             ctx.beginPath();
-            ctx.moveTo(end.x, end.y);
-            ctx.lineTo(end.x - headlen * Math.cos(angle - Math.PI / 6), end.y - headlen * Math.sin(angle - Math.PI / 6));
-            ctx.moveTo(end.x, end.y);
-            ctx.lineTo(end.x - headlen * Math.cos(angle + Math.PI / 6), end.y - headlen * Math.sin(angle + Math.PI / 6));
-            ctx.stroke();
+            ctx.fillStyle = '#22d3ee';
+            ctx.moveTo(endX, endY);
+            ctx.lineTo(endX - headlen * Math.cos(angle - Math.PI / 7), endY - headlen * Math.sin(angle - Math.PI / 7));
+            ctx.lineTo(endX - headlen * Math.cos(angle + Math.PI / 7), endY - headlen * Math.sin(angle + Math.PI / 7));
+            ctx.closePath();
+            ctx.fill();
 
             step++;
             setTimeout(drawStep, 400);
