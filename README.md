@@ -1,7 +1,5 @@
 # RouteOptima: TSP Route Optimization System
 
-**Live Demo:** [https://travelling-salesman-problem-xkwg.vercel.app/](https://travelling-salesman-problem-xkwg.vercel.app/)
-
 A professional and beginner-friendly college mini-project demonstrating route optimization using the **Travelling Salesman Problem (TSP)** solved with **Dynamic Programming and Bitmasking**.
 
 ## 🚀 Overview
