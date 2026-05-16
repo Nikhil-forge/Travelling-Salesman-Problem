@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizer | RouteOptima</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <nav>
+        <a href="index.html" class="logo">RouteOptima</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="optimizer.html" class="active">Optimizer</a></li>
+            <li><a href="about.html">About TSP</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="section-title">
+            <h2>Route Optimizer</h2>
+            <p>Enter the distance between cities and find the most efficient path.</p>
+        </div>
+
+        <div class="optimizer-layout">
+            <!-- Left Side: Inputs -->
+            <div class="card">
+                <div class="input-group">
+                    <label for="city-count">Number of Cities (2-10)</label>
+                    <input type="number" id="city-count" min="2" max="10" value="4">
+                </div>
+                
+                <button id="generate-matrix" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Generate Matrix</button>
+
+                <div id="matrix-wrapper" style="display: none;">
+                    <h3>Distance Matrix</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">Enter distances between City A and City B.</p>
+                    <div class="matrix-container">
+                        <table class="matrix-table" id="matrix-table">
+                            <!-- Dynamically generated -->
+                        </table>
+                    </div>
+                    <button id="solve-btn" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem; background: linear-gradient(135deg, var(--accent), var(--primary));">Find Optimal Route</button>
+                </div>
+            </div>
+
+            <!-- Right Side: Visualization -->
+            <div class="card">
+                <div id="canvas-container">
+                    <canvas id="tsp-canvas" width="500" height="400"></canvas>
+                    <div id="placeholder-text" style="position: absolute; color: var(--text-muted);">
+                        Visualization will appear here
+                    </div>
+                </div>
+
+                <div class="loader" id="loader"></div>
+
+                <div id="results" style="display: none;">
+                    <div class="results-card">
+                        <h3>Optimization Results</h3>
+                        <p><strong>Minimum Travelling Cost:</strong> <span id="min-cost" style="color: var(--accent); font-size: 1.5rem;">0</span></p>
+                        <p><strong>Visited Cities:</strong> <span id="cities-visited">0</span></p>
+                        
+                        <div class="route-path" id="route-display">
+                            <!-- Route path nodes will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RouteOptima - TSP Mini Project. Created for College Submission.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

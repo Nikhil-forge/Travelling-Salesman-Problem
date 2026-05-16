@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TSP | RouteOptima</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <a href="index.html" class="logo">RouteOptima</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="optimizer.html">Optimizer</a></li>
+            <li><a href="about.html" class="active">About TSP</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="section-title">
+            <h2>Understanding the Problem</h2>
+            <p>A simple breakdown of TSP, Dynamic Programming, and Bitmasking.</p>
+        </div>
+
+        <div class="card content-section">
+            <h2>What is the Travelling Salesman Problem?</h2>
+            <p>The Travelling Salesman Problem (TSP) asks the following question: "Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city exactly once and returns to the origin city?"</p>
+            <p>It is an NP-hard problem in combinatorial optimization, important in theoretical computer science and operations research.</p>
+        </div>
+
+        <div class="card content-section">
+            <h2>Dynamic Programming & Bitmasking</h2>
+            <p>To solve TSP efficiently for small datasets, we use <strong>Dynamic Programming (DP)</strong> combined with <strong>Bitmasking</strong>.</p>
+            
+            <h3 style="margin: 1rem 0; color: var(--accent);">1. Bitmasking</h3>
+            <p>We represent the set of visited cities as an integer (mask). If the i-th bit is 1, City i is visited. For example, a mask of <code>5</code> (binary <code>0101</code>) means City 0 and City 2 are visited.</p>
+
+            <h3 style="margin: 1rem 0; color: var(--accent);">2. The DP State</h3>
+            <p>We define our DP state as <code>dp[mask][pos]</code>, which represents the minimum cost to visit all cities in the 'mask' and ending at city 'pos'.</p>
+            <div class="code-box">
+                dp(mask, pos) = min( dist[pos][next] + dp(mask | (1 << next), next) )
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Time Complexity</h3>
+                <p>The brute force approach takes <strong>O(n!)</strong> time. Using DP with Bitmasking, we reduce this to <strong>O(n² 2ⁿ)</strong>. This allows us to solve for up to ~20 cities in a reasonable time.</p>
+            </div>
+            <div class="card">
+                <h3>Space Complexity</h3>
+                <p>The space complexity is <strong>O(n 2ⁿ)</strong> because we need to store the results of all subproblems in a 2D table of size (2ⁿ × n).</p>
+            </div>
+        </div>
+
+        <div class="card content-section">
+            <h2>Real-world Applications</h2>
+            <ul style="padding-left: 1.5rem;">
+                <li><strong>Logistics:</strong> Planning delivery routes for trucks to save fuel and time.</li>
+                <li><strong>Manufacturing:</strong> Optimizing the path of a robotic arm during circuit board drilling.</li>
+                <li><strong>Network Routing:</strong> Efficiently routing data packets through nodes in a network.</li>
+                <li><strong>DNA Sequencing:</strong> Ordering DNA fragments to reconstruct the original strand.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RouteOptima - TSP Mini Project. Created for College Submission.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

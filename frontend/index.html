@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteOptima | TSP Optimization System</title>
+    <meta name="description" content="A professional route optimization system using the Travelling Salesman Problem solved with Dynamic Programming.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <a href="index.html" class="logo">RouteOptima</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="optimizer.html">Optimizer</a></li>
+            <li><a href="about.html">About TSP</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Optimize Your Routes with <span>Precision</span></h1>
+            <p>Experience the power of mathematics and algorithms. Our TSP-based system finds the shortest possible route visiting multiple locations and returning to the start.</p>
+            <a href="optimizer.html" class="btn btn-primary">Start Optimization <i class="fas fa-arrow-right"></i></a>
+        </section>
+
+        <section id="features">
+            <div class="section-title">
+                <h2>Project Features</h2>
+                <p>Designed for performance, visualization, and ease of use.</p>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h3>DP + Bitmasking</h3>
+                    <p>Uses advanced Dynamic Programming and Bitmasking to solve TSP with optimal time complexity for small to medium sets of cities.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon"><i class="fas fa-route"></i></div>
+                    <h3>Live Visualization</h3>
+                    <p>Watch the optimal path being drawn in real-time on an interactive HTML5 Canvas with city nodes and connecting routes.</p>
+                </div>
+                <div class="card">
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Responsive UI</h3>
+                    <p>Modern glassmorphism design that works perfectly on desktops, tablets, and mobile devices.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits">
+            <div class="grid">
+                <div class="content-section" style="margin-top: 2rem;">
+                    <h2>Why Route Optimization?</h2>
+                    <p>The Travelling Salesman Problem (TSP) is a classic algorithmic problem in computer science and operations research.</p>
+                    <p>Efficient route optimization can lead to significant cost savings in logistics, delivery services, and transportation by reducing travel time and fuel consumption.</p>
+                    <ul style="list-style: none; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--accent); margin-right: 10px;"></i> Reduces Operational Costs</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--accent); margin-right: 10px;"></i> Improves Delivery Speed</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check-circle" style="color: var(--accent); margin-right: 10px;"></i> Decreases Carbon Footprint</li>
+                    </ul>
+                </div>
+                <div class="card" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--surface), var(--background));">
+                    <img src="https://img.icons8.com/clouds/200/map-marker.png" alt="Optimization Illustration" style="max-width: 100%;">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RouteOptima - TSP Mini Project. Created for College Submission.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

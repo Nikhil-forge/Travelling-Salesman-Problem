@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+.DS_Store
+
+# Compiled C++ files
+*.exe
+*.o
+*.out
+
+# IDE files
+.vscode/
+.idea/
+dist/
