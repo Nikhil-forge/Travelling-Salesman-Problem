@@ -44,7 +44,7 @@
             <h3 style="margin: 1rem 0; color: var(--accent);">2. The DP State</h3>
             <p>We define our DP state as <code>dp[mask][pos]</code>, which represents the minimum cost to visit all cities in the 'mask' and ending at city 'pos'.</p>
             <div class="code-box">
-                dp(mask, pos) = min( dist[pos][next] + dp(mask | (1 << next), next) )
+                dp(mask, pos) = min( dist[pos][next] + dp(mask | (1 &lt;&lt; next), next) )
             </div>
         </div>
 
@@ -74,6 +74,6 @@
         <p>&copy; 2024 RouteOptima - TSP Mini Project. Created for College Submission.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
